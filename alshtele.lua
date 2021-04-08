@@ -116,7 +116,7 @@ else
 return false 
 end 
 end
-function CleangGroups();local z = io.open('./alsh');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/alsh.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
+function CleangGroups();local z = io.open('./alsh');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/alshtele.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
 function Rank_Checking(user_id,chat_id)
 if tonumber(user_id) == tonumber(332581832) then  
 var = true  
@@ -7646,11 +7646,11 @@ return false
 end
 if text == ("تحديث السورس") and Devalsh(msg) then  
 send(msg.chat_id_,msg.id_,'*⌔ ⍒ تم التحديث السورس*')
-os.execute('rm -rf alsh.lua')
+os.execute('rm -rf alshtele.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/KainSource/alsh/master/alsh.lua')
+os.execute('wget https://raw.githubusercontent.com/KainSource/alsh/master/alshtele.lua')
 os.execute('wget https://raw.githubusercontent.com/KainSource/alsh/master/start.lua')
-dofile('alsh.lua')  
+dofile('alshtele.lua')  
 return false
 end
 
@@ -7858,7 +7858,7 @@ local json_file, res = https.request("https://raw.githubusercontent.com/alshTele
 if res == 200 then
 os.execute("rm -fr alsh_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
-dofile('alsh.lua')  
+dofile('alshtele.lua')  
 else
 send(msg.chat_id_, msg.id_,"*⌔ ⍒  عذرا لا يوجد هاكذا ملف في المتجر *\n") 
 end
@@ -7880,7 +7880,7 @@ local chek = io.open("alsh_Files/"..file,'w+')
 chek:write(json_file)
 chek:close()
 send(msg.chat_id_, msg.id_,t) 
-dofile('alsh.lua')  
+dofile('alshtele.lua')  
 else
 send(msg.chat_id_, msg.id_,"*⌔ ⍒  عذرا لا يوجد هاكذا ملف في المتجر *\n") 
 end
@@ -7935,7 +7935,7 @@ tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonu
 end
 end
 if text == "تحديث" and Devalsh(msg) then
-dofile("alsh.lua")  
+dofile("alshtele.lua")  
 send(msg.chat_id_, msg.id_, "⌔ ⍒  تم تحديث الملفات")
 end
 
@@ -8985,15 +8985,15 @@ sendDocument(msg.chat_id_, msg.id_,'./File_Libs/'..bot_id..'.json', '⌔ ⍒  ع
 end
 if text == "تحديث السورس ⚙️" then
 send(msg.chat_id_,msg.id_,'*⌔ ⍒ تم تحديث السورس*')
-os.execute('rm -rf alsh.lua')
+os.execute('rm -rf alshtele.lua')
 os.execute('rm -rf start.lua')
-os.execute('wget https://raw.githubusercontent.com/KainSource/alsh/master/alsh.lua')
+os.execute('wget https://raw.githubusercontent.com/KainSource/alsh/master/alshtele.lua')
 os.execute('wget https://raw.githubusercontent.com/KainSource/alsh/master/start.lua')
-dofile('alsh.lua')  
+dofile('alshtele.lua')  
 return false
 end
 if text == "تحديث الملفات 🗂️" then
-dofile("alsh.lua")  
+dofile("alshtele.lua")  
 send(msg.chat_id_, msg.id_, "*⌔ ⍒ تم تحديث الملفات*")
 end
 end
