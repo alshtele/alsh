@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-cd $HOME/Relax
+cd $HOME/alshtele
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
-chmod +x Relax
+chmod +x alshtele
 chmod +x ts
 ./ts
 }
 get() {
-rm -fr Relax.lua
+rm -fr alshtele.lua
 rm -fr sudo.lua
-wget "https://raw.githubusercontent.com/RelaxTele/Relax/master/Relax.lua"
+wget "https://raw.githubusercontent.com/alshteleTele/alshtele/master/alshtele.lua"
 lua start.lua
 }
 installall(){
@@ -47,7 +47,7 @@ fi
 installall
 cd ..
 rm -rf luarocks*
-cd Relax
+cd alshtele
 rm -rf luarocks*
 lua start.lua
 
