@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-cd $HOME/Relax
+cd $HOME/alshtele
 rm -rf $HOME/.telegram-cli
 install() {
 rm -rf $HOME/.telegram-cli
 sudo chmod +x tg
-chmod +x Relax
+chmod +x alshtele
 chmod +x ts
 ./ts
 }
